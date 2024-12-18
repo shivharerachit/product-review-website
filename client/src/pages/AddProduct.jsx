@@ -34,7 +34,7 @@ function AddProduct() {
       setLoading(true);
       setError(null);
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5001/api/products', values, {
+      await axios.post('https://product-review-api.vercel.app/api/products', values, {
         headers: {
           'x-auth-token': token,
         },

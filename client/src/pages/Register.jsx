@@ -21,7 +21,7 @@ function Register() {
 
   const handleSubmit = async (values) => {
     try {
-      await axios.post('http://localhost:5001/api/users/register', values);
+      await axios.post('https://product-review-api.vercel.app/api/users/register', values);
       alert('Registration successful! Please login.');
       navigate('/login');
     } catch (error) {

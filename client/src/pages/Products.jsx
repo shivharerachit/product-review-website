@@ -29,7 +29,7 @@ function Products() {
         if (category) {
           form.setFieldValue('category', category);
         }
-        const res = await axios.get('http://localhost:5001/api/products', { params: form.values });
+        const res = await axios.get('https://product-review-api.vercel.app/api/products', { params: form.values });
         setProducts(res.data || []); // Ensure we always have an array
       } catch (error) {
         console.error('Error fetching products:', error);

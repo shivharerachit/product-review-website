@@ -19,7 +19,7 @@ function Login({ setIsAuthenticated }) {
 
   const handleSubmit = async (values) => {
     try {
-      const res = await axios.post('http://localhost:5001/api/users/login', values);
+      const res = await axios.post('https://product-review-api.vercel.app/api/users/login', values);
       localStorage.setItem('token', res.data.token);
       setIsAuthenticated(true);
       navigate('/');

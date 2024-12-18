@@ -32,7 +32,7 @@ function ProductDetails() {
       try {
         setLoading(true);
         setError(null);
-        const res = await axios.get(`http://localhost:5001/api/products/${id}`);
+        const res = await axios.get(`https://product-review-api.vercel.app/api/products/${id}`);
         setProduct(res.data);
       } catch (error) {
         console.error('Error fetching product:', error);
@@ -47,7 +47,7 @@ function ProductDetails() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const res = await axios.get(`http://localhost:5001/api/reviews/${id}`, {
+        const res = await axios.get(`https://product-review-api.vercel.app/api/reviews/${id}`, {
           params: { page: currentReviewPage, limit: 5 }
         });
         setReviews(res.data.reviews);
@@ -70,7 +70,7 @@ function ProductDetails() {
         setError('You must be logged in to submit a review.');
         return;
       }
-      const response = await axios.post(`http://localhost:5001/api/reviews`, {
+      const response = await axios.post(`https://product-review-api.vercel.app/api/reviews`, {
         productId: id,
         ...values,
       }, {
@@ -79,9 +79,9 @@ function ProductDetails() {
       setSuccessMessage('Review submitted successfully!');
       reviewForm.reset();
       // Refresh product data and reviews
-      const productRes = await axios.get(`http://localhost:5001/api/products/${id}`);
+      const productRes = await axios.get(`https://product-review-api.vercel.app/api/products/${id}`);
       setProduct(productRes.data);
-      const reviewsRes = await axios.get(`http://localhost:5001/api/reviews/${id}`, {
+      const reviewsRes = await axios.get(`https://product-review-api.vercel.app/api/reviews/${id}`, {
         params: { page: 1, limit: 5 }
       });
       setReviews(reviewsRes.data.reviews);
@@ -107,7 +107,7 @@ function ProductDetails() {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:5001/api/products/${id}`, {
+        await axios.delete(`https://product-review-api.vercel.app/api/products/${id}`, {
           headers: { 'x-auth-token': token },
         });
         setSuccessMessage('Product deleted successfully!');
