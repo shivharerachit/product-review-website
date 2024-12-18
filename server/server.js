@@ -10,6 +10,13 @@ dotenv.config();
 
 const app = express();
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://product-review-website-gold.vercel.app');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+  next();
+});
+
 const corsOptions = {
   origin: 'https://product-review-website-gold.vercel.app', // Allow requests only from your frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],     // Allowed HTTP methods
