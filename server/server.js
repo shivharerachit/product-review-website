@@ -10,14 +10,22 @@ dotenv.config();
 
 const app = express();
 
+const corsOptions = {
+  origin: 'https://product-review-website-gold.vercel.app', // Allow only your frontend origin
+  methods: 'GET,POST,PUT,DELETE', // Allowed HTTP methods
+  allowedHeaders: 'Content-Type,Authorization', // Allowed headers
+};
+
+app.use(cors(corsOptions));
+
 // Middleware
-app.use(cors(
-  {
-    origin: ["https://product-review-api.vercel.app/"],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-  }
-));
+// app.use(cors(
+//   {
+//     origin: ["https://product-review-api.vercel.app/"],
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     credentials: true
+//   }
+// ));
 app.use(express.json());
 
 // Connect to MongoDB
