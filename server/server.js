@@ -21,6 +21,7 @@ const corsOptions = {
   origin: 'https://product-review-website-gold.vercel.app', // Allow requests only from your frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],     // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'],       // Allowed request headers
+  credentials: true,                                       // Allow cookies
 };
 
 // const corsOptions = {
