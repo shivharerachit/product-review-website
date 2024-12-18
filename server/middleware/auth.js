@@ -1,3 +1,4 @@
+app.options('*', cors(corsOptions)); // Allow preflight for all routes
 const jwt = require('jsonwebtoken');
 
 module.exports = function(req, res, next) {

@@ -11,7 +11,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: 'https://product-review-website-gold.vercel.app/', // Allow requests only from your frontend
+  origin: 'https://product-review-website-gold.vercel.app', // Allow requests only from your frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],     // Allowed HTTP methods
   allowedHeaders: ['Content-Type', 'Authorization'],       // Allowed request headers
 };
@@ -27,7 +27,7 @@ app.use(cors(corsOptions));
 // Middleware
 // app.use(cors(
 //   {
-//     origin: ["https://product-review-api.vercel.app/"],
+//     origin: ["https://product-review-website-gold.vercel.app"],
 //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 //     credentials: true
 //   }
