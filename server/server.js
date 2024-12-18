@@ -13,7 +13,7 @@ const app = express();
 // Middleware
 app.use(cors(
   {
-    origin: 'https://product-review-api.vercel.app/',
+    origin: ["https://product-review-api.vercel.app/"],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
   }
